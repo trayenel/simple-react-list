@@ -13,7 +13,6 @@ function InputComponent(props) {
         onChange={(event) => {
           event.preventDefault();
           props.dataHandler(event.target.value);
-          console.log(props.data);
         }}
       />
     </div>

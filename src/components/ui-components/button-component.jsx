@@ -7,8 +7,7 @@ function ButtonComponent(props) {
       type={props.type}
       onClick={(event) => {
         event.preventDefault();
-        // props.userHandler(props.userData);
-        console.log(props.userData);
+        props.userHandler(props.userInfo);
       }}
     >
       {props.children}

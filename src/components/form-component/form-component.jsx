@@ -1,6 +1,6 @@
 import styles from "./form-component.module.css";
 
-function FormComponent() {
+function FormComponent(props) {
   return (
     <div>
       <form className={styles["user-form"]}>
@@ -12,6 +12,7 @@ function FormComponent() {
           Age (years)
         </label>
         <input type={"number"} id={"age"} />
+        {props.children}
       </form>
     </div>
   );

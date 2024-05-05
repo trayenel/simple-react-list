@@ -4,8 +4,12 @@ function UserListComponent(props) {
   if (props.users.length < 1) return;
   return (
     <ul>
-      {props.users.map((item, index) => {
-        return <li key={index}>{item.name}</li>;
+      {props.users.map((user, index) => {
+        return (
+          <li key={index}>
+            {user.name} ({user.age} years old)
+          </li>
+        );
       })}
     </ul>
   );

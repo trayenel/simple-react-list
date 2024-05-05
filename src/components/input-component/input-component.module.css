@@ -1,0 +1,20 @@
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.name,
+.age {
+  align-self: start;
+}
+
+input {
+  border: 1px solid #dee2e6;
+  padding: 5px;
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid #adb5bd;
+}

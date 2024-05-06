@@ -1,17 +1,17 @@
 .modal-window {
-  border: #f1f3f5 solid 1px;
   background-color: #f1f3f5;
-  border-radius: 13px;
+  border-radius: 15px;
   width: 110vh;
   position: fixed;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 h2 {
   margin: 0;
-  border-radius: 13px 13px 0 0;
+  border: #3b5bdb solid 1px;
+  border-radius: 15px 15px 0 0;
   background-color: #3b5bdb;
   padding: 10px;
   text-align: start;
@@ -25,3 +25,10 @@ h3 {
   color: #212529;
   padding: 10px;
 }
+
+.button {
+  display: flex;
+  padding: 20px;
+  justify-content: flex-end;
+}
+

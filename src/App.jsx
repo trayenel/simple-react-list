@@ -5,7 +5,6 @@ import ButtonComponent from "./components/ui-components/button-component/button-
 import InputComponent from "./components/input-component/input-component.jsx";
 import UserListComponent from "./components/user-list-component/user-list-component.jsx";
 import ModalWindowComponent from "./components/modal-window-component/modal-window-component.jsx";
-import ModalButtonComponent from "./components/ui-components/modal-button-component/modal-button-component.jsx";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -28,7 +27,7 @@ function App() {
 
   return (
     <div>
-      <div>
+      <div className={modalOpen ? "modalActive" : null}>
         <FormComponent>
           <InputComponent
             name={"name"}
@@ -59,9 +58,9 @@ function App() {
       <div>
         {modalOpen && (
           <ModalWindowComponent>
-            <ModalButtonComponent modalHandler={modalHandler}>
+            <ButtonComponent modalHandler={modalHandler} type={"modal-button"}>
               Okay
-            </ModalButtonComponent>
+            </ButtonComponent>
           </ModalWindowComponent>
         )}
       </div>

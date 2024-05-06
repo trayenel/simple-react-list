@@ -1,0 +1,27 @@
+.modal-window {
+  border: #f1f3f5 solid 1px;
+  background-color: #f1f3f5;
+  border-radius: 13px;
+  width: 110vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h2 {
+  margin: 0;
+  border-radius: 13px 13px 0 0;
+  background-color: #3b5bdb;
+  padding: 10px;
+  text-align: start;
+  color: #212529;
+}
+
+h3 {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  text-align: start;
+  color: #212529;
+  padding: 10px;
+}

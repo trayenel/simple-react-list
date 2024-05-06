@@ -7,7 +7,13 @@ function ButtonComponent(props) {
       type={props.type}
       onClick={(event) => {
         event.preventDefault();
-        props.userHandler(props.userInfo);
+        if (
+          !props.userInfo.name ||
+          !props.userInfo.age ||
+          props.userInfo.age < 1
+        )
+          props.modalHandler(true);
+        else props.userHandler(props.userInfo);
       }}
     >
       {props.children}

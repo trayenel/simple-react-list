@@ -1,16 +1,18 @@
 import "./App.css";
-import FormComponent from "./components/form-component/form-component.jsx";
-import ButtonComponent from "./components/ui-components/button-component.jsx";
-import InputComponent from "./components/input-component/input-component.jsx";
 import { useState } from "react";
+import FormComponent from "./components/form-component/form-component.jsx";
+import ButtonComponent from "./components/ui-components/button-component/button-component.jsx";
+import InputComponent from "./components/input-component/input-component.jsx";
 import UserListComponent from "./components/user-list-component/user-list-component.jsx";
+import ModalWindowComponent from "./components/modal-window-component/modal-window-component.jsx";
+import ModalButtonComponent from "./components/ui-components/modal-button-component/modal-button-component.jsx";
 
 function App() {
   const [users, setUsers] = useState([]);
 
   const addUser = (data) => setUsers((oldData) => [...oldData, data]);
 
-  const [userInfo, setUserInfo] = useState({ name: "", age: 0 });
+  const [userInfo, setUserInfo] = useState({});
 
   const handleNameChange = (data) => {
     setUserInfo({ ...userInfo, name: data });
@@ -20,33 +22,49 @@ function App() {
     setUserInfo({ ...userInfo, age: data });
   };
 
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const modalHandler = (data) => setModalOpen(data);
+
   return (
     <div>
-      <FormComponent>
-        <InputComponent
-          name={"name"}
-          type={"text"}
-          dataHandler={handleNameChange}
-        >
-          Username
-        </InputComponent>
-        <InputComponent
-          name={"name"}
-          type={"number"}
-          dataHandler={handleAgeChange}
-        >
-          Age
-        </InputComponent>
-        <ButtonComponent
-          type={"submit"}
-          totalUsers={users}
-          userHandler={addUser}
-          userInfo={userInfo}
-        >
-          Add User
-        </ButtonComponent>
-      </FormComponent>
-      <UserListComponent users={users} />
+      <div>
+        <FormComponent>
+          <InputComponent
+            name={"name"}
+            type={"text"}
+            dataHandler={handleNameChange}
+          >
+            Username
+          </InputComponent>
+          <InputComponent
+            name={"name"}
+            type={"number"}
+            dataHandler={handleAgeChange}
+          >
+            Age
+          </InputComponent>
+          <ButtonComponent
+            type={"submit"}
+            totalUsers={users}
+            userHandler={addUser}
+            modalHandler={modalHandler}
+            userInfo={userInfo}
+          >
+            Add User
+          </ButtonComponent>
+        </FormComponent>
+        <UserListComponent users={users} />
+      </div>
+      <div>
+        {modalOpen && (
+          <ModalWindowComponent>
+            <ModalButtonComponent modalHandler={modalHandler}>
+              Okay
+            </ModalButtonComponent>
+          </ModalWindowComponent>
+        )}
+      </div>
     </div>
   );
 }

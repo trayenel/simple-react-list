@@ -2,6 +2,7 @@
 
 function UserListComponent(props) {
   if (props.users.length < 1) return;
+  console.log(props.users);
   return (
     <ul>
       {props.users.map((user, index) => {

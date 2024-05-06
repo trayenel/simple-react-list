@@ -25,6 +25,10 @@ function App() {
 
   const modalHandler = (data) => setModalOpen(data);
 
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const errorMessageHandler = (data) => setErrorMessage(data);
+
   return (
     <div>
       <div className={modalOpen ? "modalActive" : null}>
@@ -49,6 +53,7 @@ function App() {
             userHandler={addUser}
             modalHandler={modalHandler}
             userInfo={userInfo}
+            errorMessageHandler={errorMessageHandler}
           >
             Add User
           </ButtonComponent>
@@ -57,7 +62,7 @@ function App() {
       </div>
       <div>
         {modalOpen && (
-          <ModalWindowComponent>
+          <ModalWindowComponent message={errorMessage}>
             <ButtonComponent modalHandler={modalHandler} type={"modal-button"}>
               Okay
             </ButtonComponent>

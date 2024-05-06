@@ -1,10 +1,9 @@
-// import styles from "./user-list-component.module.css";
+import styles from "./user-list-component.module.css";
 
 function UserListComponent(props) {
   if (props.users.length < 1) return;
-  console.log(props.users);
   return (
-    <ul>
+    <ul className={styles["user-form"]}>
       {props.users.map((user, index) => {
         return (
           <li key={index}>

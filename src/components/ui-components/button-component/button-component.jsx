@@ -8,13 +8,19 @@ function ButtonComponent(props) {
       onClick={(event) => {
         event.preventDefault();
         if (props.type === "submit") {
-          if (
-            !props.userInfo.name ||
-            !props.userInfo.age ||
-            props.userInfo.age < 1
-          )
+          if (!props.userInfo.name || !props.userInfo.age) {
+            props.errorMessageHandler(
+              "Please a valid user name and age (non-empty values).",
+            );
             props.modalHandler(true);
-          else props.userHandler(props.userInfo);
+            return;
+          }
+          if (props.userInfo.age < 1) {
+            props.errorMessageHandler("Please a valid age (>0).");
+            props.modalHandler(true);
+            return;
+          }
+          props.userHandler(props.userInfo);
         }
         if (props.type === "modal-button") {
           props.modalHandler(false);

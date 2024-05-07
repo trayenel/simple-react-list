@@ -1,8 +1,9 @@
 import styles from "./input-component.module.css";
+import { Fragment } from "react";
 
 function InputComponent(props) {
   return (
-    <div className={styles["input-group"]}>
+    <Fragment className={styles["input-group"]}>
       <label htmlFor={props.name} className={styles[props.name]}>
         {props.children}
       </label>
@@ -15,7 +16,7 @@ function InputComponent(props) {
           props.dataHandler(event.target.value);
         }}
       />
-    </div>
+    </Fragment>
   );
 }
 

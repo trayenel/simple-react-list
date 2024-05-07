@@ -5,6 +5,7 @@ import ButtonComponent from "./components/ui-components/button-component/button-
 import InputComponent from "./components/input-component/input-component.jsx";
 import UserListComponent from "./components/user-list-component/user-list-component.jsx";
 import ModalWindowComponent from "./components/modal-window-component/modal-window-component.jsx";
+import { Fragment } from "react";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -30,8 +31,8 @@ function App() {
   const errorMessageHandler = (data) => setErrorMessage(data);
 
   return (
-    <div>
-      <div className={modalOpen ? "modalActive" : null}>
+    <Fragment>
+      <Fragment className={modalOpen ? "modalActive" : null}>
         <FormComponent>
           <InputComponent
             name={"name"}
@@ -59,8 +60,8 @@ function App() {
           </ButtonComponent>
         </FormComponent>
         <UserListComponent users={users} />
-      </div>
-      <div>
+      </Fragment>
+      <Fragment>
         {modalOpen && (
           <ModalWindowComponent message={errorMessage}>
             <ButtonComponent modalHandler={modalHandler} type={"modal-button"}>
@@ -68,8 +69,8 @@ function App() {
             </ButtonComponent>
           </ModalWindowComponent>
         )}
-      </div>
-    </div>
+      </Fragment>
+    </Fragment>
   );
 }
 

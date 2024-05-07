@@ -1,4 +1,6 @@
 import styles from "./modal-window-component.module.css";
+import { createPortal } from "react-dom";
+import { Fragment } from "react";
 
 function ModalWindowComponent(props) {
   return (

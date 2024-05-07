@@ -32,7 +32,7 @@ function App() {
 
   return (
     <Fragment>
-      <Fragment className={modalOpen ? "modalActive" : null}>
+      <div className={modalOpen ? "modalActive" : null}>
         <FormComponent>
           <InputComponent
             name={"name"}
@@ -60,7 +60,7 @@ function App() {
           </ButtonComponent>
         </FormComponent>
         <UserListComponent users={users} />
-      </Fragment>
+      </div>
       <Fragment>
         {modalOpen && (
           <ModalWindowComponent message={errorMessage}>

@@ -15,7 +15,7 @@ function ButtonComponent(props) {
             props.modalHandler(true);
             return;
           }
-          if (props.userInfo.age < 1) {
+          if (+props.userInfo.age < 1) {
             props.errorMessageHandler("Please a valid age (>0).");
             props.modalHandler(true);
             return;

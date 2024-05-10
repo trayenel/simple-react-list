@@ -3,7 +3,7 @@ import { Fragment } from "react";
 
 function InputComponent(props) {
   return (
-    <Fragment className={styles["input-group"]}>
+    <div className={styles["input-group"]}>
       <label htmlFor={props.name} className={styles[props.name]}>
         {props.children}
       </label>
@@ -16,7 +16,7 @@ function InputComponent(props) {
           props.dataHandler(event.target.value);
         }}
       />
-    </Fragment>
+    </div>
   );
 }
 

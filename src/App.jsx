@@ -1,11 +1,10 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import FormComponent from "./components/form-component/form-component.jsx";
 import ButtonComponent from "./components/ui-components/button-component/button-component.jsx";
 import InputComponent from "./components/input-component/input-component.jsx";
 import UserListComponent from "./components/user-list-component/user-list-component.jsx";
 import ModalWindowComponent from "./components/modal-window-component/modal-window-component.jsx";
-import { Fragment } from "react";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -15,11 +14,11 @@ function App() {
   const [userInfo, setUserInfo] = useState({});
 
   const handleNameChange = (data) => {
-    setUserInfo({ ...userInfo, name: data });
+    setUserInfo({ ...userInfo, name: data.trim() });
   };
 
   const handleAgeChange = (data) => {
-    setUserInfo({ ...userInfo, age: data });
+    setUserInfo({ ...userInfo, age: data.trim() });
   };
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -42,7 +41,7 @@ function App() {
             Username
           </InputComponent>
           <InputComponent
-            name={"name"}
+            name={"age"}
             type={"number"}
             dataHandler={handleAgeChange}
           >

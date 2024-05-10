@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, Fragment } from "react";
+import { useState, Fragment, useRef } from "react";
 import FormComponent from "./components/form-component/form-component.jsx";
 import ButtonComponent from "./components/ui-components/button-component/button-component.jsx";
 import InputComponent from "./components/input-component/input-component.jsx";
@@ -8,43 +8,25 @@ import ModalWindowComponent from "./components/modal-window-component/modal-wind
 
 function App() {
   const [users, setUsers] = useState([]);
-
   const addUser = (data) => setUsers((oldData) => [...oldData, data]);
 
-  const [userInfo, setUserInfo] = useState({});
-
-  const handleNameChange = (data) => {
-    setUserInfo({ ...userInfo, name: data.trim() });
-  };
-
-  const handleAgeChange = (data) => {
-    setUserInfo({ ...userInfo, age: data.trim() });
-  };
-
   const [modalOpen, setModalOpen] = useState(false);
-
   const modalHandler = (data) => setModalOpen(data);
 
   const [errorMessage, setErrorMessage] = useState("");
-
   const errorMessageHandler = (data) => setErrorMessage(data);
+
+  const nameRef = useRef();
+  const ageRef = useRef();
 
   return (
     <Fragment>
       <div className={modalOpen ? "modalActive" : null}>
         <FormComponent>
-          <InputComponent
-            name={"name"}
-            type={"text"}
-            dataHandler={handleNameChange}
-          >
+          <InputComponent name={"name"} type={"text"} data={nameRef}>
             Username
           </InputComponent>
-          <InputComponent
-            name={"age"}
-            type={"number"}
-            dataHandler={handleAgeChange}
-          >
+          <InputComponent name={"age"} type={"number"} data={ageRef}>
             Age
           </InputComponent>
           <ButtonComponent
@@ -52,8 +34,9 @@ function App() {
             totalUsers={users}
             userHandler={addUser}
             modalHandler={modalHandler}
-            userInfo={userInfo}
             errorMessageHandler={errorMessageHandler}
+            name={nameRef}
+            age={ageRef}
           >
             Add User
           </ButtonComponent>

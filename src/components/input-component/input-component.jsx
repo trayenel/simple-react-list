@@ -1,5 +1,4 @@
 import styles from "./input-component.module.css";
-import { Fragment } from "react";
 
 function InputComponent(props) {
   return (
@@ -8,13 +7,10 @@ function InputComponent(props) {
         {props.children}
       </label>
       <input
+        ref={props.data}
         type={props.type}
         id={props.name}
         name={props.name}
-        onChange={(event) => {
-          event.preventDefault();
-          props.dataHandler(event.target.value);
-        }}
       />
     </div>
   );
